@@ -2,6 +2,7 @@
  * Created by dustm on 12/4/2017.
  */
 public class Fruit {
+    private String name;
     private double pricePerUnit;
     private double totalPrice;
     private int amount;

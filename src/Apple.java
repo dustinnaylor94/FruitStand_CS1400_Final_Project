@@ -2,6 +2,7 @@
  * Created by dustm on 12/4/2017.
  */
 public class Apple extends Fruit{
+    private String name = "Apple";
     private double pricePerUnit =.50;
     private double totalPrice;
     private int amount;

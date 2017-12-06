@@ -25,7 +25,13 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
         launch(args);
     }
     Button checkout = new Button("Checkout");
-    Apple apple = new Apple();
+    Apple appleItem = new Apple();
+    Banana bananaItem = new Banana();
+    Blueberry blueberryItem = new Blueberry();
+    Mango mangoItem = new Mango();
+    Orange orangeItem = new Orange();
+    Strawberry strawberryItem = new Strawberry();
+    ShoppingCart cart = new ShoppingCart();
 
     @Override
     public void start(Stage primaryStage) {
@@ -87,6 +93,13 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
         checkout.setOnAction(this);
         GridPane.setConstraints(checkout, 3, 3);
 
+        appleBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+        bananaBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+        blueberryBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+        mangoBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+        orangeBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+        strawberryBox.setOnAction(t -> setFruitAmounts(appleBox.getValue(), bananaBox.getValue(), blueberryBox.getValue(), mangoBox.getValue(), orangeBox.getValue(), strawberryBox.getValue()));
+
 
 
         grid.getChildren().addAll(apple, appleBox, banana, bananaBox, blueberry, blueberryBox, mango, mangoBox, orange, orangeBox, strawberry, strawberryBox, checkout);
@@ -95,14 +108,32 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         primaryStage.show();
 
+
+
     }
 
     @Override
     public void handle(ActionEvent event) {
 
         if(event.getSource()==checkout){
-            System.out.println("Receipt Printed");
+            System.out.println(appleItem.getAmount());
+            System.out.println(bananaItem.getAmount());
+            System.out.println(blueberryItem.getAmount());
+            System.out.println(mangoItem.getAmount());
+            System.out.println(orangeItem.getAmount());
+            System.out.println(strawberryItem.getAmount());
+
 
         }
+    }
+    public void setFruitAmounts(int appleAmount, int bananaAmount, int blueberryAmount, int mangoAmount, int orangeAmount, int strawberryAmount){
+
+        appleItem.setAmount(appleAmount);
+        bananaItem.setAmount(bananaAmount);
+        blueberryItem.setAmount(blueberryAmount);
+        mangoItem.setAmount(mangoAmount);
+        orangeItem.setAmount(orangeAmount);
+        strawberryItem.setAmount(strawberryAmount);
+
     }
 }

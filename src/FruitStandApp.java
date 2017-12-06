@@ -25,6 +25,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
         launch(args);
     }
     Button checkout = new Button("Checkout");
+    Apple apple = new Apple();
 
     @Override
     public void start(Stage primaryStage) {
@@ -100,6 +101,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         if(event.getSource()==checkout){
+            System.out.println("Receipt Printed");
 
         }
     }

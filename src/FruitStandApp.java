@@ -20,6 +20,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.input.*;
 
+import javax.swing.*;
+
 public class FruitStandApp extends Application implements EventHandler<ActionEvent> {
     public static void main(String[] args) {
         launch(args);
@@ -116,14 +118,8 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         if(event.getSource()==checkout){
-            System.out.println(appleItem.getAmount());
-            System.out.println(bananaItem.getAmount());
-            System.out.println(blueberryItem.getAmount());
-            System.out.println(mangoItem.getAmount());
-            System.out.println(orangeItem.getAmount());
-            System.out.println(strawberryItem.getAmount());
 
-
+            JOptionPane.showMessageDialog(null, "Receipt Printed in receipt.txt");
         }
     }
     public void setFruitAmounts(int appleAmount, int bananaAmount, int blueberryAmount, int mangoAmount, int orangeAmount, int strawberryAmount){

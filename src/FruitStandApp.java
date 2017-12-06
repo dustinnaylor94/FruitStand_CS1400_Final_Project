@@ -51,7 +51,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
         bananaBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(bananaBox, 1, 1);
 
-        Label blueberry = new Label("Blueberry");
+        Label blueberry = new Label("Blueberries");
         GridPane.setConstraints(blueberry, 0, 2);
 
         ComboBox<Integer> blueberryBox = new ComboBox<Integer>();
@@ -90,7 +90,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
 
         grid.getChildren().addAll(apple, appleBox, banana, bananaBox, blueberry, blueberryBox, mango, mangoBox, orange, orangeBox, strawberry, strawberryBox, checkout);
-        Scene scene = new Scene(grid, 300, 300);
+        Scene scene = new Scene(grid, 350, 300);
         primaryStage.setScene(scene);
 
         primaryStage.show();

@@ -7,7 +7,7 @@ public class Fruit {
     private double totalPrice;
     private int amount;
 
-    public void totalFruitPice(){
+    public void totalFruitPrice(){
         this.totalPrice=pricePerUnit*amount;
     }
 
@@ -25,5 +25,21 @@ public class Fruit {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public double getPricePerUnit() {
+        return pricePerUnit;
+    }
+
+    public void setPricePerUnit(double pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

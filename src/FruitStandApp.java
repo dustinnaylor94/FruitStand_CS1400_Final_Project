@@ -5,22 +5,19 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.input.*;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FruitStandApp extends Application implements EventHandler<ActionEvent> {
     public static void main(String[] args) {
@@ -34,6 +31,8 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
     Orange orangeItem = new Orange();
     Strawberry strawberryItem = new Strawberry();
     ShoppingCart cart = new ShoppingCart();
+    List<Fruit> fruitCart = new ArrayList<>();
+    PrintWriter out = null;
 
     @Override
     public void start(Stage primaryStage) {
@@ -118,6 +117,34 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
     public void handle(ActionEvent event) {
 
         if(event.getSource()==checkout){
+            fruitCart.add(appleItem);
+            fruitCart.add(bananaItem);
+            fruitCart.add(blueberryItem);
+            fruitCart.add(mangoItem);
+            fruitCart.add(orangeItem);
+            fruitCart.add(strawberryItem);
+
+            System.out.println(appleItem.getAmount());
+            for (Fruit fruit: fruitCart) {
+                fruit.setTotalPrice(fruit.getAmount()*fruit.getPricePerUnit());
+                //System.out.println(fruit.getTotalPrice());
+            }
+            cart.setGrandTotal(fruitCart);
+
+            //System.out.println(cart.getGrandTotal());
+
+            try{
+                out = new PrintWriter("reciept.txt");
+                for (Fruit fruit: fruitCart) {
+                    out.printf("%d %s: %.2f", fruit.getAmount(), fruit.getName(), fruit.getTotalPrice());
+                }
+                out.printf("/n Grand Total: %.2f", cart.getGrandTotal());
+
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }finally {
+                out.close();
+            }
 
             JOptionPane.showMessageDialog(null, "Receipt Printed in receipt.txt");
         }

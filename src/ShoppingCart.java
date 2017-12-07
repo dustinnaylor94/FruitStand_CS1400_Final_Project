@@ -16,5 +16,9 @@ public class ShoppingCart {
             this.grandTotal+=c.getTotalPrice();
         }
     }
+
+    public double getGrandTotal() {
+        return grandTotal;
+    }
 }
 

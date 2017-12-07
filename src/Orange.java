@@ -33,4 +33,15 @@ public class Orange extends Fruit {
     public double getPricePerUnit() {
         return pricePerUnit;
     }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 }
+

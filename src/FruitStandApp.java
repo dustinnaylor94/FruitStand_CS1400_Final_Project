@@ -11,7 +11,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import javafx.scene.input.*;
 
 import javax.swing.*;
 import java.io.FileNotFoundException;
@@ -136,9 +135,9 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
             try{
                 out = new PrintWriter("reciept.txt");
                 for (Fruit fruit: fruitCart) {
-                    out.printf("%d %s: %.2f", fruit.getAmount(), fruit.getName(), fruit.getTotalPrice());
+                    out.println(fruit.getAmount() + " " + fruit.getName() + ": " + fruit.getTotalPrice());
                 }
-                out.printf("/n Grand Total: %.2f", cart.getGrandTotal());
+                out.printf("\n Grand Total: %.2f", cart.getGrandTotal());
 
             }catch (FileNotFoundException e){
                 e.printStackTrace();

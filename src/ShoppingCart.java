@@ -15,15 +15,19 @@ public class ShoppingCart {
     }
 
     //method that takes a list of type Fruit and adds up the total cost of fruits in list and sets grandTotal
-    public void setGrandTotal(List<Fruit> shoppingCart){
+    public void addToGrandTotal(List<Fruit> shoppingCart){
         for (Fruit c: shoppingCart) {
             this.grandTotal+=c.getTotalPrice();
         }
     }
 
-    //getter
+    //getter and setter
     public double getGrandTotal() {
         return grandTotal;
+    }
+
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
     }
 }
 

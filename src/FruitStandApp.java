@@ -53,7 +53,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> appleBox = new ComboBox<Integer>();
         appleBox.setValue(0);
-        appleBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        appleBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(appleBox, 1, 0);
 
         Label banana = new Label("Banana");
@@ -61,7 +61,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> bananaBox = new ComboBox<Integer>();
         bananaBox.setValue(0);
-        bananaBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        bananaBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(bananaBox, 1, 1);
 
         Label blueberry = new Label("Blueberries");
@@ -69,7 +69,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> blueberryBox = new ComboBox<Integer>();
         blueberryBox.setValue(0);
-        blueberryBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        blueberryBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(blueberryBox, 1, 2);
 
         Label mango = new Label("Mango");
@@ -77,7 +77,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> mangoBox = new ComboBox<Integer>();
         mangoBox.setValue(0);
-        mangoBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        mangoBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(mangoBox, 3, 0);
 
         Label orange = new Label("Orange");
@@ -85,7 +85,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> orangeBox = new ComboBox<Integer>();
         orangeBox.setValue(0);
-        orangeBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        orangeBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(orangeBox, 3, 1);
 
         Label strawberry = new Label("Strawberry");
@@ -93,7 +93,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
 
         ComboBox<Integer> strawberryBox = new ComboBox<Integer>();
         strawberryBox.setValue(0);
-        strawberryBox.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        strawberryBox.getItems().addAll(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         GridPane.setConstraints(strawberryBox, 3, 2);
 
 
@@ -142,7 +142,7 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
             }
 
             //set the grand total of the shopping cart
-            cart.setGrandTotal(fruitCart);
+            cart.addToGrandTotal(fruitCart);
 
             //print receipt, only items that you have bought 1 or more of.
             try{
@@ -160,6 +160,10 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
             }
 
             JOptionPane.showMessageDialog(null, "Receipt Printed in receipt.txt");
+
+            //clear shopping cart and grand total after each transaction
+            fruitCart.clear();
+            cart.setGrandTotal(0);
         }
     }
 

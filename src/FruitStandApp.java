@@ -135,9 +135,10 @@ public class FruitStandApp extends Application implements EventHandler<ActionEve
             try{
                 out = new PrintWriter("reciept.txt");
                 for (Fruit fruit: fruitCart) {
-                    out.println(fruit.getAmount() + " " + fruit.getName() + ": " + fruit.getTotalPrice());
+                    if (fruit.getAmount()>0)
+                    out.printf("%d %s: %.2f %n", fruit.getAmount(), fruit.getName(), fruit.getTotalPrice());
                 }
-                out.printf("\n Grand Total: %.2f", cart.getGrandTotal());
+                out.printf("Grand Total: $%.2f", cart.getGrandTotal());
 
             }catch (FileNotFoundException e){
                 e.printStackTrace();

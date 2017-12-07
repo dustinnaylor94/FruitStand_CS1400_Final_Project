@@ -1,16 +1,24 @@
 /**
- * Created by dustm on 12/4/2017.
+ * Created by Dustin and Angelo on 12/4/2017.
+ * Fruit Parent class for all fruit items
  */
 public class Fruit {
+
+    //attributes
     private String name;
     private double pricePerUnit;
     private double totalPrice;
     private int amount;
 
-    public void totalFruitPrice(){
-        this.totalPrice=pricePerUnit*amount;
+    //default constructor
+    public Fruit(){
+        name="fruit";
+        pricePerUnit=0;
+        totalPrice=0;
+        amount=0;
     }
 
+    //getters and setters
     public double getTotalPrice() {
         return totalPrice;
     }

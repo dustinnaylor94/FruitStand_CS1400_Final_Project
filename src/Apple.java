@@ -1,12 +1,16 @@
 /**
- * Created by dustm on 12/4/2017.
+ * Created by Dustin and Angelo on 12/4/2017.
+ * Apple Class
  */
 public class Apple extends Fruit{
+
+    //attributes
     private String name;
     private double pricePerUnit;
     private double totalPrice;
     private int amount;
 
+    //default constructor
     public Apple(){
         name = "Apples";
         pricePerUnit = .5;
@@ -14,6 +18,7 @@ public class Apple extends Fruit{
         amount = 0;
     }
 
+    //getters and setters
     public double getTotalPrice() {
         return totalPrice;
     }

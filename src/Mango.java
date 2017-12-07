@@ -1,12 +1,15 @@
 /**
- * Created by dustm on 12/4/2017.
+ * Created by Dustin and Angelo on 12/4/2017.
  */
 public class Mango extends Fruit {
+
+    //attributes
     private String name;
     private double pricePerUnit;
     private double totalPrice;
     private int amount;
 
+    //default constructor
     public Mango(){
         name = "Mangos";
         pricePerUnit = 1;
@@ -14,6 +17,7 @@ public class Mango extends Fruit {
         amount = 0;
     }
 
+    //getters and setters
     public double getTotalPrice() {
         return totalPrice;
     }
